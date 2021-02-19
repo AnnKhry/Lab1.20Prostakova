@@ -1,0 +1,37 @@
+#Задание 1_15. Определить есть ли среди заданных целых чисел A, B, C, D хотя бы одно чётное.
+print("Введите 4 числа")
+A = int(input())
+B = int(input())
+C = int(input())
+D = int(input())
+print(A, B, C, D)
+if A % 2 == 0 or B % 2 == 0 or C % 2 == 0 or D % 2 == 0:
+    print("Есть четное число")
+else:
+    print("четных чисел нет")
+    
+    
+    
+    
+    
+#Задание 2_5. Дана непустая последовательность ненулевых целых чисел, за которой следует 0.
+# Определить, сколько раз в этой последовательности меняется знак.
+import math
+
+list = [1, -16, 2, -2, -17, -19, 2, 0]
+count = 0
+for i in range(1, len(list)):
+    if math.copysign(1, list[i]) != math.copysign(1, list[i - 1]):
+        count += 1
+
+print(count)    
+
+
+# Задание 3_4. Найти значение минимального элемента списка.
+import random
+
+print("Введите размер массива")
+n = int(input())
+a = [random.randint(0, 99) for i in range(n)]
+print(a)
+print("Минимальное число:", min(a))
