@@ -1,0 +1,137 @@
+#Создать класс Book: id, Название, Автор (ы), Издательство, Год издания, Количество страниц, Цена, Тип переплета. Функции-члены реализуют запись и считывание полей (проверка корректности).
+#Создать список объектов. Вывести:
+#a)	список книг заданного автора;
+#b)	список книг, выпущенных после заданного года.
+
+
+class book:
+    __id = 0
+    __name = ""
+    __author = ""
+    __publisher = ""
+    __year = 0
+    __pages = 0
+    __price = 0
+    __type = ""
+    __book_list = [ ]
+
+    #конструктор
+    def __init__(self, id, name, author, publisher, year, pages, price, type):
+        self.__id = id
+        self.__name = name
+        self.__author = author
+        self.__publisher = publisher
+        self.__year = year
+        self.__pages = pages
+        self.__price = price
+        self.__type = type
+
+    def get_id(self):
+        return self.__id
+
+    def set_id(self, id):
+        self.__id = id
+
+    def get_name(self):
+        return self.__name
+
+    def set_name(self, name):
+        self.__name = name
+
+    def get_author(self):
+        return self.__author
+
+    def set_author(self, author):
+        self.__author = author
+
+    def get_publisher(self):
+        return self.__publisher
+
+    def set_publisher(self, publisher):
+        self.__publisher = publisher
+
+    def get_year(self):
+        return self.__year
+
+    def set_year(self, year):
+        self.__year = year
+
+    def get_pages(self):
+        return self.__pages
+
+    def set_pages(self, pages):
+            self.__pages = pages
+
+    def get_price(self):
+        return self.__price
+
+    def set_price(self, price):
+        self.__price = price
+
+    def get_type(self):
+        return self.__type
+
+    def set_type(self, type):
+        self.__type= type
+
+def toPrint(self):
+    return str(self.get_id()) + "," + self.get_name() + "," + self.get_author() + \
+            "," + self.get_publisher() + "," + str(self.get_year()) + "," + str(self.get_pages()) + \
+            "," + str(self.get_price()) + "," + self.get_type()
+
+def getInfo(self):
+        print(str(book_list[i].get_id()) + "," + book_list[i].get_name() + "," + book_list[i].get_author() + \
+                "," + book_list[i].get_publisher() + "," + str(book_list[i].get_year()) + "," + str(book_list[i].get_pages()) + \
+                 "," + str(book_list[i].get_price()) + "," + book_list[i].get_type())
+def addBook():
+        id = input('Введите ID книги: ')
+        name = input('Введите название книги: ')
+        author = input('Введите фамилию писателя: ')
+        publisher = input('Введите издательство: ')
+        year = input('Введите год издания: ')
+        pages = input('введите количество страниц: ')
+        price = input('Введите стоимость: ')
+        type = input('Введите тип переплета: ')
+
+        return book(id, name, author, publisher,
+                year, pages, price, type)
+
+book_list = [book(2, 'Гордость и предубеждение', 'Остин', 'АСТ', 2018, 416, 11, 'Твердый переплет'),
+book(3, 'Страна радости', 'Кинг',  'АСТ', 2019, 320, 22, 'Твердый переплет'),
+book(4, 'Скотный двор', 'Оруэлл', 'АСТ', 2017, 368, 13, 'Твердый переплет'),
+book(5, 'Эмма', 'Остин', 'Аст', 2020, 480, 20, 'Твердый переплет'),
+book(6, 'Вино из одуванчиков', 'Брэдберри', 'Эксмо', 2015, 448, 17, 'Суперобложка'),
+book(7, 'Назови меня своим именем', 'Асиман', 'Popcorn Books', 2019, 362, 23, 'Мягкая обложка'),
+book(8, 'Лолита', 'Набоков', 'Азбука', 2013, 416, 11, 'Мягкая обложка')]
+
+# вывод книг по заданному автору
+Author = input('Введите фамилию автора \n')
+i=0
+for i in range(len(book_list)):
+    if book_list[i].get_author() == Author:
+        print("Книги заданного автора")
+        getInfo(i)
+        i+=1
+else:
+        print('-------------------------------------------------')
+
+print("\nЗадание b-Список книг, выпущенных после заданного года")
+myYear = int(input('Введите год издания \n'))
+print(" Книги , изданные после " + str(myYear) + " года")
+for i in range(len(book_list)):
+    if  book_list[i].get_year() > myYear:
+        getInfo(i)
+        i+=1
+else:
+        print('-------------------------------------------------')
+print('Добавить новую книгу')
+
+new_book = addBook()
+Book = book_list.append(new_book)
+print(" Добавленная книга ")
+getInfo(new_book)
+
+#попыталась  вывести список с добавленной книгой , но не получилось
+book_list.append(new_book)
+print(book_list)
+
